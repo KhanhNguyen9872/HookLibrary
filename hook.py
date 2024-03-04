@@ -338,7 +338,8 @@ class simple_ball:
 class ㅤ:
     def __init__(self) -> None:
         try:
-            __import__('colorama').just_fix_windows_console()
+            if __import__('os').name == 'nt':
+                __import__('colorama').just_fix_windows_console()
         except:
             raise OSError("Something went wrong! Cannot fix STDOUT CMD!")
 
